@@ -4,11 +4,15 @@ Basics of SpecklePy
 ## Instructions
 - Clone this repo
 - Install uv if you don't have it
+```
 pip install uv
+```
 
 - Create a new project with virtual environment
+'''
 uv init my-speckle-project
 cd my-speckle-project
+'''
 
 - Add specklepy
 uv add specklepy
