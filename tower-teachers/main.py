@@ -1,7 +1,5 @@
 import specklepy
 from specklepy.api.client import SpeckleClient
-from specklepy.objects.geometry import Point
-from specklepy.api import operations
 import os
 from dotenv import load_dotenv
 
@@ -13,17 +11,28 @@ def main():
     # Load environment variables from a local .env file, if present
     load_dotenv()
 
-    # Get token from environment
+    # Get token and server host from environment
     token = os.environ.get("SPECKLE_TOKEN")
-    server_url = os.environ.get("SPECKLE_SERVER", "app.speckle.systems")
+    server_host = os.environ.get("SPECKLE_SERVER", "app.speckle.systems")
 
     if not token:
-        raise ValueError("SPECKLE_TOKEN environment variable not set")
+        print("Set SPECKLE_TOKEN in your .env and re-run.")
+        return
 
     # Authenticate
-    client = SpeckleClient(host=server_url)
+    client = SpeckleClient(host=server_host)
     client.authenticate_with_token(token)
-    print(f"✓ Authenticated to {server_url}")
+    print(f"✓ Authenticated to {server_host}")
+
+    # Check if authenticated
+    if client.account.token:
+        print("✓ Authenticated")
+
+    # Get current user info
+        user = client.active_user.get()
+        print(f"Logged in as: {user.name}")
+    else:
+        print("✗ Not authenticated")
 
 
 if __name__ == "__main__":
