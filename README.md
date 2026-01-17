@@ -26,3 +26,4 @@ from specklepy.api import operations
 print("✓ specklepy installed successfully!")
 
 - Commit your changes to GitHub.
+git config --global commit.gpgsign false 
