@@ -2,8 +2,12 @@
 Basics of SpecklePy
 
 ## Instructions
-- Clone this repo
-- Install uv if you don't have it
+- Create a repository in your Github account named "Session03-Specklepy"
+- Clone it to your PC (make a local copy):
+- Copy the repo's URL
+- In VSCode (in the Welcome tab), use the option "Clone Git Repository...", providing the URL.
+
+- Open VSCode's terminal and Install uv
 ```
 pip install uv
 ```
