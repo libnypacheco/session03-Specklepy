@@ -41,3 +41,32 @@ print("✓ specklepy installed successfully!")
 ```
 git config --global commit.gpgsign false
 ```
+
+- For authentication: 
+
+0. IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitinore file and inside it add the files you dont want to be sent to the repository:
+
+```
+# Ignore environment files containing secrets
+.env
+*.env
+
+# Optional: ignore local virtual environments
+.venv/
+```
+
+
+1. Create token in app.speckle.system. Click your avatar → Settings → Profile → Developer → Access Tokens
+
+2. Click “New Token”, give it a name and select the required scopes, then copy the token.
+
+3. Create a ".env" file in the "tower-teacher" folder
+
+4. Fill in your values:
+
+```dotenv
+SPECKLE_TOKEN=your_token_here
+SPECKLE_SERVER=https://app.speckle.systems
+
+uv add python-dotenv
+uv sync
