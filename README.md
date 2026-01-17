@@ -1,2 +1,2 @@
-# session03-Specklepy
+# session03-SpecklePy
 Basics of SpecklePy
