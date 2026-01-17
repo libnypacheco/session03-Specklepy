@@ -2,7 +2,7 @@
 Basics of SpecklePy
 
 ## Instructions
-- Create a repository in your Github account named "Session03-Specklepy"
+- Create a repository in your Github account named "session-03"
 - Clone it to your PC (make a local copy):
 - Copy the repo's URL
 - In VSCode (in the Welcome tab), use the option "Clone Git Repository...", providing the URL.
@@ -14,8 +14,8 @@ pip install uv
 
 - Create a new project with virtual environment
 ```
-uv init my-speckle-project
-cd my-speckle-project
+uv init session-03
+cd session-03
 ```
 
 - Add specklepy
