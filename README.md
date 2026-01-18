@@ -44,7 +44,7 @@ git config --global commit.gpgsign false
 
 ## Authentication
 
-_IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitinore file and inside it add the files you dont want to be sent to the repository:_
+_IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitignore file and add to it the files you dont want to be sent to the repository:_
 
 ```
 # Ignore environment files containing secrets
