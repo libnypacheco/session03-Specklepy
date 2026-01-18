@@ -1,7 +1,7 @@
 # Session-03-SpecklePy
 Basics of SpecklePy
 
-## Instructions
+## Installation
 - Create a repository in your Github account named "session-03"
 - Clone it to your PC (make a local copy):
 - Copy the repo's URL
@@ -23,7 +23,7 @@ cd session-03
 uv add specklepy
 ```
 
-- Activate or select the virtual environment created by uv, localted in .venv > Scripts > Python.exe
+- Activate or select the virtual environment created by uv, located in .venv > Scripts > Python.exe
 
 - Run main.py
 
@@ -42,9 +42,9 @@ print("✓ specklepy installed successfully!")
 git config --global commit.gpgsign false
 ```
 
-- For authentication: 
+## Authentication
 
-0. IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitinore file and inside it add the files you dont want to be sent to the repository:
+_IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitinore file and inside it add the files you dont want to be sent to the repository:_
 
 ```
 # Ignore environment files containing secrets
@@ -67,6 +67,12 @@ git config --global commit.gpgsign false
 ```dotenv
 SPECKLE_TOKEN=your_token_here
 SPECKLE_SERVER=https://app.speckle.systems
+```
 
+5. Before testing the authentication (by running main.py), install the package python-dotenv using uv, with the following code:
+
+```
 uv add python-dotenv
 uv sync
+
+```
