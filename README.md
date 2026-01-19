@@ -1,78 +1,85 @@
 # Session-03-SpecklePy
 Basics of SpecklePy
 
-## Installation
-- Create a repository in your Github account named "session-03"
-- Clone it to your PC (make a local copy):
-- Copy the repo's URL
-- In VSCode (in the Welcome tab), use the option "Clone Git Repository...", providing the URL.
+## Getting Started
 
-- Open VSCode's terminal and Install uv
+### 1. Clone this repository
+
+Clone this repo to your PC (make a local copy):
+
+```bash
+git clone https://github.com/YOUR_USERNAME/session03-Specklepy.git
 ```
+
+Or in VSCode (in the Welcome tab), use the option **"Clone Git Repository..."** and provide the URL.
+
+### 2. Install uv (if not already installed)
+
+Open VSCode's terminal and install uv:
+
+```bash
 pip install uv
 ```
 
-- Create a new project with virtual environment
-```
-uv init session-03
-cd session-03
+### 3. Set up the virtual environment
+
+Navigate to the project folder and sync dependencies:
+
+```bash
+cd tower-teachers
+uv sync
 ```
 
-- Add specklepy
-```
-uv add specklepy
+This will:
+- Create a virtual environment in `.venv/`
+- Install all required packages (`specklepy`, `python-dotenv`)
+
+### 4. Activate the virtual environment
+
+**Windows (PowerShell):**
+```powershell
+.venv\Scripts\Activate.ps1
 ```
 
-- Activate or select the virtual environment created by uv, located in .venv > Scripts > Python.exe
-
-- Run main.py
-
-- To test Specklepy installation, add this code to Main.py
-```
-import specklepy
-from specklepy.api.client import SpeckleClient
-from specklepy.objects.geometry import Point
-from specklepy.api import operations
-
-print("✓ specklepy installed successfully!")
+**Windows (Command Prompt):**
+```cmd
+.venv\Scripts\activate.bat
 ```
 
-- Commit your changes to GitHub.
+**macOS/Linux:**
+```bash
+source .venv/bin/activate
 ```
-git config --global commit.gpgsign false
+
+Alternatively, in VSCode, select the Python interpreter located at `.venv/Scripts/python.exe` (Windows) or `.venv/bin/python` (macOS/Linux).
+
+### 5. Verify installation
+
+Run the test script to confirm everything is working:
+
+```bash
+python main.py
 ```
+
+You should see a success message confirming the Speckle client connection.
+
+---
 
 ## Authentication
 
-_IMPORTANT: to avoid sharing or publishing password, tokens or files, you can create a .gitignore file and add to it the files you dont want to be sent to the repository:_
+> **IMPORTANT:** To avoid sharing passwords or tokens, the `.gitignore` file already excludes `.env` files and the `.venv/` folder.
 
-```
-# Ignore environment files containing secrets
-.env
-*.env
+### Set up your Speckle token
 
-# Optional: ignore local virtual environments
-.venv/
-```
+1. Go to [app.speckle.systems](https://app.speckle.systems). Click your avatar -> **Settings** -> **Developer** -> **Access Tokens**
 
+2. Click **"New Token"**, give it a name and select the required scopes, then copy the token.
 
-1. Create token in app.speckle.system. Click your avatar → Settings → Profile → Developer → Access Tokens
-
-2. Click “New Token”, give it a name and select the required scopes, then copy the token.
-
-3. Create a ".env" file in the "tower-teacher" folder
-
-4. Fill in your values:
+3. Create a `.env` file in the `tower-teachers` folder:
 
 ```dotenv
 SPECKLE_TOKEN=your_token_here
 SPECKLE_SERVER=https://app.speckle.systems
 ```
 
-5. Before testing the authentication (by running main.py), install the package python-dotenv using uv, with the following code:
-
-```
-uv add python-dotenv
-uv sync
-
-```
+4. Run `main.py` to test the authentication.

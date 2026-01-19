@@ -8,3 +8,8 @@ dependencies = [
     "specklepy>=3.2.3",
     "python-dotenv>=1.0.0",
 ]
+
+[tool.uv.workspace]
+members = [
+    "03-specklepy",
+]

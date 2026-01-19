@@ -32,7 +32,6 @@ def get_client() -> SpeckleClient:
     # Authenticate
     client = SpeckleClient(host=server_host)
     client.authenticate_with_token(token)
-    print(f"✓ Authenticated to {server_host}")
 
     return client
 
@@ -40,7 +39,5 @@ def get_client() -> SpeckleClient:
 if __name__ == "__main__":
     # Test authentication when running this script directly
     client = get_client()
-
-    # Get current user info
     user = client.active_user.get()
-    print(f"✓ Logged in as: {user.name}")
+    print(f"✓ Logged in as {user.name} on {client.url}")
