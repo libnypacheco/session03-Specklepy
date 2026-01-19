@@ -5,7 +5,7 @@ This script demonstrates how to create a new project in Speckle
 and retrieve its details.
 
 NOTE: Projects must belong to a workspace. You can find your workspace ID
-in the Speckle web interface URL: https://app.speckle.systems/workspaces/YOUR_WORKSPACE_ID
+in the Speckle web interface URL:# https://app.speckle.systems/settings/workspaces/macad-iaac/general
 """
 
 from main import get_client
@@ -14,6 +14,9 @@ from specklepy.core.api.enums import ProjectVisibility
 
 
 # TODO: Replace with your workspace ID
+# You can find it in the URL when you open your workspace in Speckle web:
+# https://app.speckle.systems/settings/workspaces/macad-iaac/general
+
 WORKSPACE_ID = "YOUR_WORKSPACE_ID"
 
 
@@ -32,7 +35,7 @@ def main():
 
     # Create a new project inside the workspace
     project = client.project.create_in_workspace(WorkspaceProjectCreateInput(
-        name="My First Speckle Project",
+        name="YOUR_PROJECT_NAME",
         description="Learning specklepy",
         visibility=ProjectVisibility.PRIVATE,
         workspaceId=WORKSPACE_ID

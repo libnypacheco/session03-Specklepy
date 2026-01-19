@@ -3,6 +3,8 @@
 
 This script demonstrates how to receive objects from Speckle,
 add custom properties, and send them back as a new version.
+
+Use this model: https://app.speckle.systems/projects/YOUR_PROJECT_ID/models/YOUR_MODEL_ID
 """
 
 from main import get_client
@@ -11,27 +13,23 @@ from specklepy.api import operations
 from specklepy.objects.base import Base
 
 
-# TODO: Replace with your project and model IDs
-PROJECT_ID = "your_project_id"
-MODEL_ID = "your_model_id"
+# TODO: Replace with your project, model, and version IDs
+PROJECT_ID = "YOUR_PROJECT_ID"
+MODEL_ID = "YOUR_MODEL_ID"
+VERSION_ID = "YOUR_VERSION_ID"
 
 
 def main():
     # Authenticate
     client = get_client()
 
-    # Get the latest version
-    versions = client.version.get_versions(PROJECT_ID, MODEL_ID, limit=1)
-    if not versions.items:
-        print("No versions found.")
-        return
-
-    latest_version = versions.items[0]
-    print(f"✓ Fetching version: {latest_version.id}")
+    # Get the specific version
+    version = client.version.get(VERSION_ID, PROJECT_ID)
+    print(f"✓ Fetching version: {version.id}")
 
     # Receive the data
     transport = ServerTransport(client=client, stream_id=PROJECT_ID)
-    data = operations.receive(latest_version.referencedObject, transport)
+    data = operations.receive(version.referenced_object, transport)
 
     # Add custom properties to the root object
     data["custom_property"] = "Hello from specklepy!"
@@ -58,7 +56,7 @@ def main():
         projectId=PROJECT_ID,
         modelId=MODEL_ID,
         objectId=object_id,
-        message="Added custom properties via specklepy"
+        message="Added custom properties via specklepy2"
     ))
 
     print(f"✓ Created version: {version.id}")
