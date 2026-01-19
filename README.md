@@ -36,22 +36,7 @@ This will:
 
 ### 4. Activate the virtual environment
 
-**Windows (PowerShell):**
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-**Windows (Command Prompt):**
-```cmd
-.venv\Scripts\activate.bat
-```
-
-**macOS/Linux:**
-```bash
-source .venv/bin/activate
-```
-
-Alternatively, in VSCode, select the Python interpreter located at `.venv/Scripts/python.exe` (Windows) or `.venv/bin/python` (macOS/Linux).
+In VSCode, with ">Python: Select Interpreter", select the Python interpreter located at `.venv/Scripts/python.exe` (Windows) or `.venv/bin/python` (macOS/Linux).
 
 ### 5. Verify installation
 
