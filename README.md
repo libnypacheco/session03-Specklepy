@@ -60,11 +60,17 @@ You should see a success message confirming the Speckle client connection.
 
 2. Click **"New Token"**, give it a name and select the required scopes, then copy the token.
 
-3. Create a `.env` file in the `tower-teachers` folder:
+3. Copy the `.env.example` file to `.env` in the `tower-teachers` folder:
+
+```bash
+cp .env.example .env
+```
+
+4. Edit `.env` and replace `your_token_here` with your actual token:
 
 ```dotenv
 SPECKLE_TOKEN=your_token_here
 SPECKLE_SERVER=https://app.speckle.systems
 ```
 
-4. Run `main.py` to test the authentication.
+5. Run `main.py` to test the authentication.
